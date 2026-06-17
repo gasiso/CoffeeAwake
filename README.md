@@ -1,5 +1,11 @@
 # ☕ CoffeeAwake
 
+<div align="center">
+  <img src="https://img.shields.io/badge/.NET-8.0-512BD4.svg" alt=".NET 8.0">
+  <img src="https://img.shields.io/badge/Platform-Windows-0078D6.svg" alt="Windows">
+  <img src="https://img.shields.io/badge/license-MIT-green.svg" alt="License">
+</div>
+
 <p align="center">
   <a href="README.en.md">🇺🇸 English</a> | <b>🇧🇷 Português</b>
 </p>
