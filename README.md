@@ -1,40 +1,46 @@
 # ☕ CoffeeAwake
 
-> **Lightweight Windows tray utility** that keeps your PC awake using the official Win32 `SetThreadExecutionState` API — no input simulation, no registry tweaks, no power-plan changes, no admin rights needed.
+<p align="center">
+  <a href="README.en.md">🇺🇸 English</a> | <b>🇧🇷 Português</b>
+</p>
+
+<br>
+
+> **Utilitário ultraleve de bandeja para Windows** que mantém o seu PC acordado usando a API oficial Win32 `SetThreadExecutionState` — sem simulação de mouse/teclado, sem alterações forçadas no registro, sem mudanças no plano de energia e sem necessidade de direitos de administrador.
 
 ---
 
-## Features
+## Funcionalidades
 
-| Feature | Details |
+| Funcionalidade | Detalhes |
 |---|---|
-| **Stay awake** | Prevents system sleep AND display timeout |
-| **Timed sessions** | Auto-deactivate after 1h / 2h / 4h |
-| **Tray-only** | No main window — lives quietly in the notification area |
-| **Double-click toggle** | Quick on/off directly from the tray icon |
-| **Start with Windows** | Optional autostart (HKCU — no UAC prompt) |
-| **Single-instance** | Second launch does nothing |
-| **Self-contained EXE** | One file, no .NET runtime required on target machine |
+| **Manter acordado** | Evita a suspensão do sistema E o desligamento da tela |
+| **Sessões programadas** | Desativação automática após 1h / 2h / 4h |
+| **Apenas na Bandeja** | Sem janela principal — vive de forma discreta perto do relógio |
+| **Atalho por duplo clique** | Ligue e desligue rapidamente direto pelo ícone |
+| **Iniciar com o Windows** | Inicialização automática opcional (HKCU — sem aviso chato de UAC) |
+| **Instância Única** | Tentar abrir uma segunda vez não faz nada, preservando a memória |
+| **EXE Auto-contido** | Apenas um arquivo, não exige a instalação prévia do .NET no PC do usuário |
 
 ---
 
-## How It Works
+## Como Funciona
 
-CoffeeAwake calls a single Win32 API:
+O CoffeeAwake utiliza de forma nativa e limpa a seguinte API Win32:
 
 ```csharp
-// Activate
+// Ativar
 SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED | ES_DISPLAY_REQUIRED);
 
-// Deactivate
+// Desativar
 SetThreadExecutionState(ES_CONTINUOUS);
 ```
 
-Windows automatically resets this when the process exits, so the system will never be permanently stuck in an awake state. CoffeeAwake also explicitly resets the state on normal exit and on unhandled exceptions.
+O Windows redefine isso automaticamente quando o processo termina, garantindo que o sistema **nunca** fique preso permanentemente em um estado acordado. O CoffeeAwake também zera explicitamente o estado em saídas normais e caso ocorram exceções não tratadas.
 
 ---
 
-## Project Structure
+## Estrutura do Projeto
 
 ```
 CoffeeAwake/
@@ -42,43 +48,43 @@ CoffeeAwake/
 ├── README.md
 └── src/
     └── CoffeeAwake/
-        ├── CoffeeAwake.csproj       # Project file
-        ├── app.manifest             # No UAC, DPI-aware
-        ├── Program.cs               # Entry point, single-instance mutex
-        ├── TrayApplicationContext.cs # Tray icon, context menu, state wiring
+        ├── CoffeeAwake.csproj       # Arquivo do Projeto
+        ├── app.manifest             # Define DPI-aware e bloqueia UAC
+        ├── Program.cs               # Ponto de entrada, mutex de instância única
+        ├── TrayApplicationContext.cs # O coração do app: ícone, menu e lógica
         ├── Native/
-        │   └── NativeMethods.cs     # P/Invoke for SetThreadExecutionState
+        │   └── NativeMethods.cs     # Ponte P/Invoke para SetThreadExecutionState
         ├── Services/
-        │   ├── AwakeService.cs      # Core logic, timed sessions, IDisposable
-        │   └── StartupService.cs    # HKCU autostart registry helper
+        │   ├── AwakeService.cs      # Regras de negócio e temporizadores
+        │   └── StartupService.cs    # Helper para registro de inicialização
         └── UI/
-            └── IconFactory.cs       # GDI+ icon generation (no external assets)
+            └── IconFactory.cs       # Geração do ícone via código (sem arquivos externos)
 ```
 
 ---
 
-## Requirements
+## Requisitos
 
-- **Windows 10 / 11** (x64 or ARM64)
-- **.NET 8 SDK** — [download](https://dotnet.microsoft.com/download/dotnet/8.0)
+- **Windows 10 / 11** (x64 ou ARM64)
+- **.NET 8 SDK** — [Baixe aqui](https://dotnet.microsoft.com/download/dotnet/8.0)
 
 ---
 
-## Build & Run (Development)
+## Compilar & Rodar (Desenvolvimento)
 
 ```powershell
-# Clone / navigate to the project
+# Clone o repositório e navegue até a pasta src
 cd src/CoffeeAwake
 
-# Run directly
+# Rode o projeto diretamente
 dotnet run
 ```
 
 ---
 
-## Publish as Self-Contained EXE
+## Publicar como um EXE auto-contido
 
-### Windows x64 (recommended for most PCs)
+### Windows x64 (recomendado para a maioria dos PCs)
 
 ```powershell
 dotnet publish src/CoffeeAwake/CoffeeAwake.csproj `
@@ -104,15 +110,15 @@ dotnet publish src/CoffeeAwake/CoffeeAwake.csproj `
     -o ./publish/win-arm64
 ```
 
-The output `CoffeeAwake.exe` in the `publish/` folder is fully standalone — copy it anywhere and run. No installer, no dependencies.
+O executável gerado (`CoffeeAwake.exe`) na pasta `publish/` é totalmente independente — copie para qualquer lugar e rode. Não tem instalador e nem dependências ocultas.
 
 ---
 
-## Usage
+## Como Usar
 
-1. **Launch** `CoffeeAwake.exe` — a coffee cup icon appears in the system tray.
-2. **Double-click** the icon to toggle awake mode on/off.
-3. **Right-click** for the full menu:
+1. **Abra** o `CoffeeAwake.exe` — um ícone de xícara de café vai aparecer perto do relógio.
+2. **Clique duplo** no ícone para ligar/desligar o modo "acordado".
+3. **Clique direito** para abrir o menu completo:
    - Ativar / Desativar
    - Manter acordado por 1h / 2h / 4h
    - Iniciar com o Windows
@@ -120,18 +126,18 @@ The output `CoffeeAwake.exe` in the `publish/` folder is fully standalone — co
 
 ---
 
-## Security & Safety
+## Segurança e Confiabilidade
 
-- ✅ No admin privileges required  
-- ✅ No keyboard/mouse simulation  
-- ✅ No power plan modification  
-- ✅ No permanent registry side-effects (startup entry is optional and user-controlled)  
-- ✅ Awake state is always cleared on exit, even on crash  
-- ✅ Single-instance enforced via named Mutex  
-- ✅ Zero third-party dependencies  
+- ✅ Não requer privilégios de Administrador  
+- ✅ Não fica simulando cliques falsos de mouse ou botões de teclado  
+- ✅ Não muda os perfis de energia do Windows  
+- ✅ Sem lixo no registro (a chave de iniciar com o Windows é opcional)  
+- ✅ O PC nunca trava acordado. Se o app fechar ou travar, o Windows volta a dormir  
+- ✅ Impede a abertura de várias instâncias ao mesmo tempo  
+- ✅ Zero dependências de pacotes externos ou de terceiros  
 
 ---
 
-## License
+## Licença
 
-[MIT](LICENSE) © 2024 CoffeeAwake Contributors
+[MIT](LICENSE) © 2024 Contribuidores do CoffeeAwake
