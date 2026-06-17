@@ -1,0 +1,31 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <!-- Target Windows-specific .NET 8 -->
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWindowsForms>true</UseWindowsForms>
+
+    <!-- Assembly metadata -->
+    <AssemblyName>CoffeeAwake</AssemblyName>
+    <RootNamespace>CoffeeAwake</RootNamespace>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+    <Company>CoffeeAwake</Company>
+    <Product>CoffeeAwake</Product>
+    <Description>Keeps your Windows PC awake using SetThreadExecutionState</Description>
+    <Copyright>Copyright © 2024 CoffeeAwake — MIT License</Copyright>
+
+    <!-- No console window, no admin required -->
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+
+    <!-- Embed resources -->
+    <AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+
+
+
+</Project>

@@ -1,0 +1,17 @@
+# Visual Studio / .NET Core
+[Bb]in/
+[Oo]bj/
+
+# Rider / IDEs
+.idea/
+.vs/
+*.user
+*.suo
+
+# Publish output
+saida/
+publish/
+
+# OS files
+.DS_Store
+Thumbs.db
