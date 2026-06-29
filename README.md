@@ -118,6 +118,10 @@ dotnet publish src/CoffeeAwake/CoffeeAwake.csproj `
 
 O executável gerado (`CoffeeAwake.exe`) na pasta `publish/` é totalmente independente — copie para qualquer lugar e rode. Não tem instalador e nem dependências ocultas.
 
+### Instalador (Inno Setup)
+
+Para gerar o arquivo de instalação final (`CoffeeAwake_Setup.exe`), baixe e instale o [Inno Setup](https://jrsoftware.org/isinfo.php). Depois de compilar o executável (na pasta `publish\win-x64` conforme passo anterior), basta dar um clique duplo no arquivo `setup.iss` (na raiz do repositório) e clicar no botão **Compile**. O instalador super compactado será gerado na pasta `Output`.
+
 ---
 
 ## Como Usar

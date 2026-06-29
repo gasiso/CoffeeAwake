@@ -15,3 +15,7 @@ publish/
 # OS files
 .DS_Store
 Thumbs.db
+
+# Inno Setup Output
+Output/
+
