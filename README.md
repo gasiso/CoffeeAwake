@@ -10,6 +10,12 @@
   <a href="README.en.md">🇺🇸 English</a> | <b>🇧🇷 Português</b>
 </p>
 
+## 📥 Download
+
+**[Baixe a versão mais recente do Instalador aqui](https://github.com/gasiso/CoffeeAwake/releases/latest)**
+
+---
+
 <br>
 
 > **Utilitário ultraleve de bandeja para Windows** que mantém o seu PC acordado usando a API oficial Win32 `SetThreadExecutionState` — sem simulação de mouse/teclado, sem alterações forçadas no registro, sem mudanças no plano de energia e sem necessidade de direitos de administrador.
@@ -117,10 +123,6 @@ dotnet publish src/CoffeeAwake/CoffeeAwake.csproj `
 ```
 
 O executável gerado (`CoffeeAwake.exe`) na pasta `publish/` é totalmente independente — copie para qualquer lugar e rode. Não tem instalador e nem dependências ocultas.
-
-### Instalador (Inno Setup)
-
-Para gerar o arquivo de instalação final (`CoffeeAwake_Setup.exe`), baixe e instale o [Inno Setup](https://jrsoftware.org/isinfo.php). Depois de compilar o executável (na pasta `publish\win-x64` conforme passo anterior), basta dar um clique duplo no arquivo `setup.iss` (na raiz do repositório) e clicar no botão **Compile**. O instalador super compactado será gerado na pasta `Output`.
 
 ---
 
