@@ -1,0 +1,2 @@
+# Ignora arquivos do Inno Setup nas estatísticas de linguagem do GitHub
+*.iss linguist-detectable=false
