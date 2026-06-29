@@ -144,6 +144,6 @@ The output `CoffeeAwake.exe` in the `publish/` folder is fully standalone — co
 
 ---
 
-## License
+## 📄 License
 
-[MIT](LICENSE) © 2024 CoffeeAwake Contributors
+This project is licensed under the MIT License. Feel free to use, modify, and distribute.

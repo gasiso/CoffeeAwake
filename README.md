@@ -144,6 +144,6 @@ O executável gerado (`CoffeeAwake.exe`) na pasta `publish/` é totalmente indep
 
 ---
 
-## Licença
+## 📄 Licença
 
-[MIT](LICENSE) © 2024 Contribuidores do CoffeeAwake
+Este projeto está sob a licença MIT. Sinta-se à vontade para usar, modificar e distribuir.
