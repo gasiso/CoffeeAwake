@@ -10,11 +10,7 @@
   <b>🇺🇸 English</b> | <a href="README.md">🇧🇷 Português</a>
 </p>
 
-## 📥 Download
 
-**[Download the latest Installer here](https://github.com/gasiso/CoffeeAwake/releases/latest)**
-
----
 
 <br>
 
